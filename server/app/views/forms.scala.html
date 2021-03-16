@@ -1,0 +1,21 @@
+@()
+
+@main("Forms") {
+
+    <form method="get" action="/GetFormBasicText">
+        <h3>Favorite Color GET</h3>
+        <label for="name">Name</label>
+        <input type="text" name="name"></input>
+        <label for="favColor">Favorite Color</label>
+        <input type="text" name="favColor"></input>
+        <input type="submit"></input>
+    </form>
+
+    <form method="POST" action="@routes.FormController.postFormBasicText">
+        <h3>Username POST</h3>
+        <label for="username">Username</label>
+        <input type="text" name="username"></input>
+        <input type="submit"></input>
+    </form>
+    
+}
