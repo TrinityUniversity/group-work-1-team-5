@@ -24,4 +24,5 @@ class FormController @Inject()(cc: ControllerComponents) extends AbstractControl
       Ok(views.html.basicPost(username))
     }.getOrElse(Ok("data pls"))
   }
+  
 }

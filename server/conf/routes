@@ -2,7 +2,7 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
+# Home pagerun
 GET        /                                  controllers.Application.index
 GET        /GetForm                           controllers.FormController.getForm
 GET        /GetFormBasicText                  controllers.FormController.getFormBasicText(name, favColor)
