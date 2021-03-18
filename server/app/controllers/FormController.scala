@@ -1,9 +1,8 @@
 package controllers
 
 import javax.inject._
-
-import edu.trinity.videoquizreact.shared.SharedMessages
 import play.api.mvc._
+import models.StudentModel
 
 @Singleton
 class FormController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
@@ -17,12 +16,28 @@ class FormController @Inject()(cc: ControllerComponents) extends AbstractControl
     Ok(views.html.basicTextGet(favColor, name))
   }
 
-  def postFormBasicText = Action { request =>
+  def validateUser = Action { request =>
     val postVals = request.body.asFormUrlEncoded
     postVals.map { args =>
       val username = args("username").head
-      Ok(views.html.basicTextPost(username))
+
+      if (StudentModel.validateUsername(username)) {
+        Redirect(routes.FormController.studentInfo()).withSession("username" -> username)
+      } else Redirect(routes.FormController.forms())
     }.getOrElse(Ok("data pls"))
+  }
+
+  def studentInfo = Action { request =>
+    request.session.get("username").map { username =>
+      val friends = StudentModel.getFriends(username)
+      val pageInfo = StudentModel.getPageInfo(username)
+
+      Ok(views.html.studentInfo(username, friends, pageInfo)).withSession("username" -> username)
+    }.getOrElse(Redirect(routes.FormController.forms()))
+  }
+
+  def logout = Action {
+    Redirect(routes.FormController.forms()).withNewSession
   }
   
 }

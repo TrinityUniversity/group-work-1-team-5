@@ -11,7 +11,7 @@
         <input type="submit"></input>
     </form>
 
-    <form method="POST" action="@routes.FormController.postFormBasicText()">
+    <form method="POST" action="@routes.FormController.validateUser()">
         @helper.CSRF.formField
         <h3>Username POST</h3>
         <label for="username">Username</label>

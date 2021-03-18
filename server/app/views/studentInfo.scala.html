@@ -1,0 +1,20 @@
+@(username: String, friends: Seq[String], pageInfo: models.StudentModel.PageInfo)
+
+@main("Student Info") {
+  <h1>Welcome, @username</h1>
+  <a href="@routes.FormController.logout()">Logout</a>
+
+  <h2>@username's friends list</h2>
+  <ul>
+    @for(f <- friends) {
+      <li>@f</li>
+    }
+  </ul>
+
+  <h2>@username's page info</h2>
+  <ul>
+    <li>URL: @pageInfo.url</li>
+    <li>Ports: @pageInfo.lowPortBound - @pageInfo.highPortBound</li>
+    <li>Machine: @pageInfo.machine</li>
+  </ul>
+}
