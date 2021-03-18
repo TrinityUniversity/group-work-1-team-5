@@ -1,4 +1,4 @@
-@()
+@()(implicit request: RequestHeader)
 
 @main("Forms") {
 
@@ -12,6 +12,7 @@
     </form>
 
     <form method="POST" action="@routes.FormController.postFormBasicText()">
+        @helper.CSRF.formField
         <h3>Username POST</h3>
         <label for="username">Username</label>
         <input type="text" name="username"></input>

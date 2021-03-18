@@ -8,7 +8,7 @@ import play.api.mvc._
 @Singleton
 class FormController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
-  def getForm = Action { request =>
+  def getForm = Action { implicit request =>
     Ok(views.html.forms())
   }
 

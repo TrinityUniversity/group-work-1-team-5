@@ -6,7 +6,6 @@
 GET        /                                  controllers.Application.index
 GET        /GetForm                           controllers.FormController.getForm
 GET        /GetFormBasicText                  controllers.FormController.getFormBasicText(name, favColor)
-+ nocsrf
 POST       /PostForm                          controllers.FormController.postFormBasicText
 
 # Prefix must match `play.assets.urlPrefix`
