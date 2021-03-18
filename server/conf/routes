@@ -4,9 +4,9 @@
 
 # Home pagerun
 GET        /                                  controllers.Application.index
-GET        /GetForm                           controllers.FormController.getForm
+GET        /Forms                             controllers.FormController.forms
 GET        /GetFormBasicText                  controllers.FormController.getFormBasicText(name, favColor)
-POST       /PostForm                          controllers.FormController.postFormBasicText
+POST       /PostFormBasicText                 controllers.FormController.postFormBasicText
 
 # Prefix must match `play.assets.urlPrefix`
 GET        /assets/*file                 controllers.Assets.at(file)
