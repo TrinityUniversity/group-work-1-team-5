@@ -9,7 +9,7 @@ import play.api.mvc._
 class TestText @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
   def testText = Action {
-    Ok(views.html.testtext(SharedMessages.testText))
+    Ok(views.html.testText(SharedMessages.testText))
   }
 
 }

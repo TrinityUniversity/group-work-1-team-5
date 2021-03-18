@@ -1,18 +1,17 @@
-import controllers.FormController
+import controllers.Application
 import org.scalatestplus.play._
 import play.api.test.Helpers
 import play.api.test.Helpers._
 import play.api.test.FakeRequest
 
-class FormControllerSpec extends PlaySpec {
+class ApplicationControllerSpec extends PlaySpec {
 
-  "FormController" should {
-    val controller = new FormController(Helpers.stubControllerComponents())
-    "render the get form" in {
-      val result = controller.getForm.apply(FakeRequest())
+  "ApplicationController" should {
+    val controller = new Application(Helpers.stubControllerComponents())
+    "render the index" in {
+      val result = controller.index.apply(FakeRequest())
       val bodyText = contentAsString(result)
-      bodyText must include ("Favorite Color GET")
-      bodyText must include ("Username POST")
+      bodyText must include ("It works!")
     }
   }
 
